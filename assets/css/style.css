@@ -1868,8 +1868,7 @@ figure {
   overflow: visible;
   width: 100%;
   height: auto;
-  margin-top: 40px;
-  padding-bottom: 40px;
+  margin-top: 10px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
