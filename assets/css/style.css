@@ -4935,3 +4935,7 @@ html.w-mod-js *[data-ix="slide-out-of-view"] {
   text-align: left;
   margin-top: 10px;
 }
+
+.subservices-heading {
+  font-weight: bold;
+}
