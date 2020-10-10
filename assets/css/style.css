@@ -681,6 +681,7 @@ Banner Area Style
 .banner-area.banner-area-two .banner-site-img {
   position: relative;
   top: 60px;
+  padding-bottom: 28px;
 }
 
 .banner-area.banner-area-two .banner-site-img.four {
@@ -2575,7 +2576,7 @@ Transform Area Style
 }
 
 .transform-content .skill-bar {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .transform-content .skill-bar .progress-title-holder {
