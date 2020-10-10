@@ -2560,8 +2560,8 @@ Transform Area Style
           box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   padding: 50px;
-  margin-left: -100px;
-  margin-top: 100px;
+  /* margin-left: -100px; */
+  /* margin-top: 100px; */
 }
 
 .transform-content h2 {
@@ -6797,4 +6797,9 @@ ul.timeline > li:before {
   width: 20px;
   height: 20px;
   z-index: 400;
+}
+
+.custom-nav-link {
+  padding-left: 9px !important;
+  padding-right: 9px !important;
 }
