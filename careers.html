@@ -154,7 +154,6 @@
 			<div class="container">
 				<div class="section-title">
                     <h2>Open Positions</h2>
-                    <p>Send out your resumes to <a href="mailto:careers@securosoft.com">careers@securosoft.com</a> along with the role you wish to apply for! We're looking forward to having you in our team!</p>
                 </div>
             </div>
         </section>
@@ -171,39 +170,87 @@
                                     <th>Location</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Mobile App Developer (iOS & Android)</td>
-                                    <td>
-                                        Urgently looking to hire Mobile App Developers for a live project with a Startup based in UAE. 
-                                        <ul>
-                                            <li style="list-style-type: disc; margin-left: 20px;">Should have around 1-2 years of experience in Android/iOS App Development.</li>
-                                            <li style="list-style-type: disc; margin-left: 20px;">Creative mindset to design UI/UX and plan-innovate new features. </li>
-                                            <li style="list-style-type: disc; margin-left: 20px;">Should support the entire application lifecycle (concept, design, test, release and support).</li>
-                                            <li style="list-style-type: disc; margin-left: 20px;">Work from home. Around 2-4 hours daily.</li>
-                                        </ul>
-                                    </td>
-                                    <td>Remote</td>
-                                </tr>
-                                <tr>
-                                    <td>Full-Stack Web Developer</td>
-                                    <td>
-                                        Urgently looking to hire Full Stack Web Developers for a live project with a Client based in UK.
-                                        <ul>
-                                            <li style="list-style-type: disc; margin-left: 20px;">Should have around 1-2 years of experience in fundamental front end languages such as <b>HTML, CSS</b> and <b>JavaScript</b>.</li>
-                                            <li style="list-style-type: disc; margin-left: 20px;">Experience in Backend Frameworks/Languages like: <b>PHP/MERN Stack/Django/RoR/.NET</b> etc. preferred</li>
-                                            <li style="list-style-type: disc; margin-left: 20px;">Problem Solving Skills</li>
-                                            <li style="list-style-type: disc; margin-left: 20px;">Work from home. Around 2-4 hours daily.</li>
-                                        </ul>
-                                    </td>
-                                    <td>Remote</td>
-                                </tr>
-                            </tbody>
+                            <tbody id="positions"></tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Start Contact Area -->
+		<section class="faq-contact-area pb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="contact-wrap">
+							<div class="contact-form">
+								<div class="section-title">
+									<h2>Apply Now!</h2>
+                                    <p>Fill out the form below, or send out your resumes to <a href="mailto:careers@securosoft.com">careers@securosoft.com</a> along with the role you wish to apply for! We're looking forward to having you in our team!</p>
+								</div>
+
+								<form id="contactForm" method="POST" action="https://formspree.io/f/mqkgevpr" enctype="multipart/form-data">
+									<div class="row">
+										<div class="col-lg-6 col-sm-6">
+											<div class="form-group">
+												<input type="text" name="name" id="name" class="form-control" required="true" data-error="Please enter your name" placeholder="Name">
+												<div class="help-block with-errors"></div>
+											</div>
+										</div>
+			
+										<div class="col-lg-6 col-sm-6">
+											<div class="form-group">
+												<input type="email" name="email" id="email" class="form-control" required="true" data-error="Please enter your email" placeholder="Email">
+												<div class="help-block with-errors"></div>
+											</div>
+										</div>
+			
+										<div class="col-lg-6 col-sm-6">
+											<div class="form-group">
+												<input type="tel" name="phone_number" id="phone_number" required="true" data-error="Please enter your number" class="form-control" placeholder="Phone">
+												<div class="help-block with-errors"></div>
+											</div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-sm-6">
+											<div class="form-group">
+                                                <select name="job-title" id="job-title" class="form-control" data-error="Please Select the Job Title"></select>
+												<div class="help-block with-errors"></div>
+											</div>
+                                        </div>
+
+                                        <div class="col-lg-2 col-sm-2 offset-lg-3">
+											Select Resume: 
+                                        </div>
+
+                                        <div class="col-lg-4 col-sm-6">
+											<div class="form-group">
+                                                <input type="file" id="resume" name="resume" class="form-control" data-error="Please upload your Resume" placeholder="Resume">
+												<div class="help-block with-errors"></div>
+											</div>
+                                        </div>
+                                        
+										<div class="col-lg-12 col-md-12">
+											<div class="form-group">
+												<textarea name="cover-letter" class="form-control" id="cover-letter" cols="30" rows="8" required="true" data-error="Please enter your Cover Letter" placeholder="Cover Letter"></textarea>
+												<div class="help-block with-errors"></div>
+											</div>
+										</div>
+			
+										<div class="col-lg-12 col-md-12">
+											<button type="submit" class="default-btn page-btn" style="pointer-events: all; cursor: pointer;">
+												Submit
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Contact Area -->
 
 		<div id="footer"></div>
 		
@@ -223,12 +270,62 @@
 		<script src="assets/js/jquery.ajaxchimp.min.js"></script>
         <script src="assets/js/custom.js"></script>
         <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript" src="jobs.js"></script>
 		
 		<script>
             $("#footer").load("footer.html");
+
             $(document).ready(function() {
+                var html = "";
+
+                var positions = [];
+
+                for (var i = 0; i < positions_json.length; i++){
+                    var obj = positions_json[i];
+                    for (var key in obj){
+                        var job = key;
+                        var attrValue = obj[key];
+
+                        var header = attrValue['Header'];
+                        var requirements = attrValue['Requirements'].split('\n');
+                        var location = attrValue['Location'];
+
+                        html += "<tr>"
+                        html += "<td><b>" + job + "</b></td>"
+                        html += "<td>" + header + "<ul>"
+
+                        for (var j = 0; j < requirements.length; j++) {
+                            html += `<li class="jd-list-item">` + requirements[j].trim() + `</li>`;
+                        }
+
+                        html += "</ul></td>"
+                        html += "<td>" + location + "</td>"
+                        html += "</tr>"
+
+                        positions.push(job);
+                    }
+                }
+
+                if (html.length > 0) {
+                    $('#positions').html(html);
+                }
+
+                html = "<option selected disabled>Select Job Title</option>";
+
+                for (var i = 0; i < positions.length; i++){                    
+                    var job = positions[i];
+                    html += `<option value="` + job.replace(" ", "-") + `">` + job + `</option>`;
+                }
+
+                $("#job-title").removeAttr("style");
+                $("#job-title").html(html);
+                $(".nice-select").remove();
+                
                 $('#example').DataTable();
             } );
+
+            
         </script>
     
 </body></html>
