@@ -8,7 +8,8 @@
 		<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
 		<link rel="stylesheet" href="assets/css/magnific-popup.css">
 		<link rel="stylesheet" href="assets/css/animate.css">
-		<link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css' rel='stylesheet'>
 		<link rel="stylesheet" href="assets/css/flaticon.css">
 		<link rel="stylesheet" href="assets/css/meanmenu.css">
 		<link rel="stylesheet" href="assets/css/nice-select.css">
@@ -152,49 +153,57 @@
         <section class="performance-area bg-none pt-70" id="services">
 			<div class="container">
 				<div class="section-title">
-                    <h2>Want to Join us?</h2>
+                    <h2>Open Positions</h2>
                     <p>Send out your resumes to <a href="mailto:careers@securosoft.com">careers@securosoft.com</a> along with the role you wish to apply for! We're looking forward to having you in our team!</p>
                 </div>
             </div>
         </section>
 
-        <section class="performance-area bg-none pt-70 pb-70">
-			<div class="container">
-
+        <section class="performance-area bg-none pb-70">
+            <div class="container">
 				<div class="row align-items-center">
-
-                    <div class="col-lg-6">
-						<div>
-							<h2>Mobile App Developers (iOS & Android)</h2>
-							<p>
-                                Urgently looking to hire Mobile App Developers for a live project with a Startup based in UAE. 
-                                <ul>
-                                    <li style="list-style-type: disc; margin-left: 20px;">Should have around 1-2 years of experience in Android/iOS App Development.</li>
-                                    <li style="list-style-type: disc; margin-left: 20px;">Creative mindset to design UI/UX and plan-innovate new features. </li>
-                                    <li style="list-style-type: disc; margin-left: 20px;">Should support the entire application lifecycle (concept, design, test, release and support).</li>
-                                    <li style="list-style-type: disc; margin-left: 20px;">Work from home. Around 2-4 hours daily.</li>
-                                </ul>
-                            </p>
-                        </div>
-					</div>
-
-					<div class="col-lg-6">
-						<div>
-							<h2>Full-Stack Web Developers</h2>
-							<p>
-                                Urgently looking to hire Full Stack Web Developers for a live project with a Client based in UK.
-                                <ul>
-                                    <li style="list-style-type: disc; margin-left: 20px;">Should have around 1-2 years of experience in fundamental front end languages such as <b>HTML, CSS</b> and <b>JavaScript</b>.</li>
-                                    <li style="list-style-type: disc; margin-left: 20px;">Experience in Backend Frameworks/Languages like: <b>PHP/MERN Stack/Django/RoR/.NET</b> etc. preferred</li>
-                                    <li style="list-style-type: disc; margin-left: 20px;">Problem Solving Skills</li>
-                                    <li style="list-style-type: disc; margin-left: 20px;">Work from home. Around 2-4 hours daily.</li>
-                                </ul>
-                            </p>
-                        </div>
-					</div>
-				</div>
-			</div>
-		</section>
+                    <div class="col-lg-12">
+                        <table id="example" class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Position</th>
+                                    <th>Job Description</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mobile App Developer (iOS & Android)</td>
+                                    <td>
+                                        Urgently looking to hire Mobile App Developers for a live project with a Startup based in UAE. 
+                                        <ul>
+                                            <li style="list-style-type: disc; margin-left: 20px;">Should have around 1-2 years of experience in Android/iOS App Development.</li>
+                                            <li style="list-style-type: disc; margin-left: 20px;">Creative mindset to design UI/UX and plan-innovate new features. </li>
+                                            <li style="list-style-type: disc; margin-left: 20px;">Should support the entire application lifecycle (concept, design, test, release and support).</li>
+                                            <li style="list-style-type: disc; margin-left: 20px;">Work from home. Around 2-4 hours daily.</li>
+                                        </ul>
+                                    </td>
+                                    <td>Remote</td>
+                                </tr>
+                                <tr>
+                                    <td>Full-Stack Web Developer</td>
+                                    <td>
+                                        Urgently looking to hire Full Stack Web Developers for a live project with a Client based in UK.
+                                        <ul>
+                                            <li style="list-style-type: disc; margin-left: 20px;">Should have around 1-2 years of experience in fundamental front end languages such as <b>HTML, CSS</b> and <b>JavaScript</b>.</li>
+                                            <li style="list-style-type: disc; margin-left: 20px;">Experience in Backend Frameworks/Languages like: <b>PHP/MERN Stack/Django/RoR/.NET</b> etc. preferred</li>
+                                            <li style="list-style-type: disc; margin-left: 20px;">Problem Solving Skills</li>
+                                            <li style="list-style-type: disc; margin-left: 20px;">Work from home. Around 2-4 hours daily.</li>
+                                        </ul>
+                                    </td>
+                                    <td>Remote</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 		<div id="footer"></div>
 		
@@ -212,9 +221,14 @@
 		<script src="assets/js/form-validator.min.js"></script>
 		<script src="assets/js/contact-form-script.js"></script>
 		<script src="assets/js/jquery.ajaxchimp.min.js"></script>
-		<script src="assets/js/custom.js"></script>
-
+        <script src="assets/js/custom.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 		
-		<script>$("#footer").load("footer.html");</script>
+		<script>
+            $("#footer").load("footer.html");
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+        </script>
     
 </body></html>
